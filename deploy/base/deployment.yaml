@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rclone
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: rclone
+        imagePullPolicy: IfNotPresent
+        image: rclone
+        ports:
+        - name: http-metrics
+          containerPort: 5572
